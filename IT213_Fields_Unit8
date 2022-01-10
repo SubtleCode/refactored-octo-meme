@@ -1,0 +1,90 @@
+
+ 
+using System;
+ 
+namespace IT213_Fields_Unit8
+{
+   class Program
+   {
+
+       static void Main(string[] args)
+       {
+           //Define integer array to hold 10 integers. Initialize with ten values
+           
+           int[] numberArray = { 56, 77, 23, 12, 88, 59, 97, 33, 38, 64 };
+ 
+           //Define string array to hold 10 strings.
+           String[] stringArray = new String[10];
+ 
+           //Call findmax() to find index of the largest item in the array
+           int maxNumIndex = findMax(numberArray, numberArray.Length);
+ 
+           //Call evenOrOdd() to determine if each item in numberArray is even or odd
+           
+           evenOrOdd(numberArray, stringArray, numberArray.Length);
+ 
+           Console.WriteLine("**** Assignment 8 - Arrays ****\n\n");
+           
+//print the maximum number determined by findMax as well as the array index position of the largest number
+
+
+           Console.WriteLine("The largest value in the array is " + numberArray[maxNumIndex] + " located at array index " + maxNumIndex);
+ 
+//loop through the arrays and print the integer from integer array followed by the corresponding value from the string array
+
+           Console.WriteLine("The numbers were:");
+           for (int i = 0; i < numberArray.Length; i++)
+ 
+               Console.WriteLine(numberArray[i] + " is " + stringArray[i]);
+ 
+
+           Console.Read();
+ 
+       }
+//Write a function, named findMax, that will accept two arguments and return an integer value.
+//first parameter is an integer array, second parameter is the size or length of the integer array
+
+       public static int findMax(int[] numArray, int length)
+       {
+           int maxValue = numArray[0];
+           int maxValuePosition = 0;
+           //Loop through the positions in the array, searching all items to find the largest value in the array.
+           for (int i = 0; i < length; i++)
+           {
+               if (numArray[i] > maxValue)
+               {
+                   maxValue = numArray[i];
+                   maxValuePosition = i;
+               }
+           }
+
+           return maxValuePosition;
+       }
+ 
+ 
+       //evenOrOdd function
+       //The first parameter is the integer array  
+       //The second parameter is the string array
+       //The third parameter is an integer indicating the size of the two arrays
+       
+       public static void evenOrOdd(int[] numArray, String[] strArray, int length)
+       {
+           
+           for (int i = 0; i < length; i++)
+           {
+               //place the appropriate value, “even” or “odd”, in the corresponding position of the string array
+               if (numArray[i] % 2 == 0)
+               {
+                   strArray[i] = "even";
+               }
+               else
+               {
+                   strArray[i] = "odd";
+               }
+ 
+           }
+       }
+ 
+   }
+ 
+}// end of program for unit 8 assignmen
